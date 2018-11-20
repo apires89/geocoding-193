@@ -39,7 +39,7 @@ if (mapElement) {
 
 }
 
-const addressInput = document.getElementById('flat_address');
+const addressInput = document.getElementById('restaurant_address');
 
 if (addressInput) {
   const places = require('places.js');
