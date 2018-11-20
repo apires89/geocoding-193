@@ -1,10 +1,19 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
+  layout 'map', only: :index
+
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.where.not(latitude:nil,longitude:nil)
+
+    @markers = @restaurants.map do |restaurant|
+      {
+        lng:restaurant.longitude,
+        lat:restaurant.latitude
+      }
+    end
   end
 
   # GET /restaurants/1

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Restaurants</h1>
+<div id="restaurants">
+  <h1>Restaurants</h1>
 
 <table>
   <thead>
@@ -27,3 +27,10 @@
 <br>
 
 <%= link_to 'New Restaurant', new_restaurant_path %>
+</div>
+
+<div
+  id="map"
+data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
